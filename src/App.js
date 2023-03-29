@@ -2,6 +2,8 @@ import * as React from 'react';
 import classnames from 'classnames';
 import './App.css';
 
+const TILES_COUNT = 16;
+
 let highlights = [];
 let correctlySelected = 0;
 
@@ -32,8 +34,8 @@ function App() {
 
   const nextRound = React.useCallback(() => {
     setRound((curRound) => curRound + 1);
-    highlights.push(Math.round(Math.random() * 16));
-    launchRound();
+    highlights.push();
+    launchRound(getNextHighlight());
   }, [launchRound]);
 
   const clickCard = React.useCallback(
@@ -61,7 +63,7 @@ function App() {
     nextRound();
   }, [nextRound]);
 
-  const cards = new Array(16)
+  const cards = new Array(TILES_COUNT)
     .fill(0)
     .map((_, idx) => (
       <Card
@@ -132,6 +134,10 @@ function Signature() {
 
 async function sleep(timeout) {
   return new Promise((resolve) => setTimeout(resolve, timeout));
+}
+
+function getNextHighlight() {
+  return Math.min(Math.round(Math.random() * TILES_COUNT), TILES_COUNT - 1);
 }
 
 export default App;

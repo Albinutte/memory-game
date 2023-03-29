@@ -34,8 +34,8 @@ function App() {
 
   const nextRound = React.useCallback(() => {
     setRound((curRound) => curRound + 1);
-    highlights.push();
-    launchRound(getNextHighlight());
+    highlights.push(getNextHighlight());
+    launchRound();
   }, [launchRound]);
 
   const clickCard = React.useCallback(

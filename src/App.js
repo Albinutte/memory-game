@@ -96,6 +96,7 @@ function App() {
           </button>
         ) : null}
       </div>
+      <Signature />
     </div>
   );
 }
@@ -117,6 +118,15 @@ function Card({ isHighlighted, pendingInput, didFail, onClick }) {
       })}
       onClick={onClick}
     />
+  );
+}
+
+function Signature() {
+  return (
+    <div className="signature">
+      <div>Albina Ezus, 2023</div>
+      <div>Für Christian und Lenny.</div>
+    </div>
   );
 }
 

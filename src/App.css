@@ -45,3 +45,10 @@
     height: 4vh;
     max-height: 4vh;
 }
+
+.signature {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    font-size: 12px;
+}
